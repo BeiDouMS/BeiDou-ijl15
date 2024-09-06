@@ -1545,3 +1545,35 @@ __declspec(naked) void apDetailBtn()
 		jmp apDetailBtnRtn
 	}
 }
+
+int darkCircleX;
+int darkCircleY;
+constexpr DWORD darkMap1ccRtn = 0x0055BEEF;
+__declspec(naked) void darkMap1cc() {
+	__asm {
+		add edx, darkCircleX
+		add ecx, darkCircleY
+		jmp darkMap1ccRtn
+	}
+}
+constexpr DWORD darkMap2ccRtn = 0x0055C08B;
+__declspec(naked) void darkMap2cc() {
+	__asm {
+		add eax, darkCircleY
+		push eax
+		mov eax, [ebp - 3Ch]
+		add eax, darkCircleX
+		jmp darkMap2ccRtn
+	}
+}
+constexpr DWORD darkMap3ccRtn = 0x0055C1D2;
+__declspec(naked) void darkMap3cc() {
+	__asm {
+		add eax, darkCircleY
+		push edi
+		push eax
+		mov eax, [ebp - 3Ch]
+		add eax, darkCircleX
+		jmp darkMap3ccRtn
+	}
+}

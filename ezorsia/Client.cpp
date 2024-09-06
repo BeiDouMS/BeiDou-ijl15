@@ -697,6 +697,12 @@ void Client::UpdateResolution() {
 	//Memory::CodeCave(testingCodeCave2, dwTesting2, Testing2NOPs); //testing
 	//Memory::CodeCave(testingCodeCave3, dwTesting3, Testing3NOPs); //testing
 	//Memory::CodeCave(testingCodeCave4, dwTesting4, Testing4NOPs); //testing
+
+	darkCircleX = m_nGameWidth / 2 - 163;
+	darkCircleY = m_nGameHeight / 2 - 190;
+	Memory::CodeCave(darkMap1cc, 0x0055BEE6, 9);
+	Memory::CodeCave(darkMap2cc, 0x0055C07F, 12);
+	Memory::CodeCave(darkMap3cc, 0x0055C1C5, 13);
 }
 
 void Client::EnableNewIGCipher() {//??not called //no idea what cipher is
