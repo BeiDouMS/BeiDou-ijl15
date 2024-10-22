@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "AddyLocations.h"
 #include "codecaves.h"
-#include <cstringt.h>
 #include "FixIme.h"
 #include "FixBuddy.h"
 

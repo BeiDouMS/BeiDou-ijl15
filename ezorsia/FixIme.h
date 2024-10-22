@@ -28,7 +28,7 @@ void DisableIme() {
 	}
 }
 
-byte enabled = 1;
+BYTE enabled = 1;
 
 DWORD funcEnableImeAddr = 0x009E85F3;
 
