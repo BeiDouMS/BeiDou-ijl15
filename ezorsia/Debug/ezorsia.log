@@ -1,0 +1,70 @@
+﻿  Client.cpp
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1047,2): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1047,2): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1047,2): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1049,2): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1049,2): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1049,2): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1051,2): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1051,2): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1051,2): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1053,2): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1053,2): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1053,2): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1055,2): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1055,2): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1055,2): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1073,2): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1073,2): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1073,2): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1075,2): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1075,2): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1075,2): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1077,2): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1077,2): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1077,2): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1079,2): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1079,2): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1079,2): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1081,2): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1081,2): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1081,2): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,142): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,142): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,142): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,160): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,160): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,160): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,178): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,178): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,178): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,196): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,196): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,196): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,214): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,214): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,214): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,380): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,380): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,380): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,399): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,399): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,399): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,418): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,418): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,418): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,437): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,437): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,437): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,456): warning C4838: 从“int”转换到“unsigned char”需要收缩转换
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,456): warning C4305: “初始化”: 从“int”到“unsigned char”截断
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1086,456): warning C4309: “初始化”: 截断常量值
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\codecaves.h(1457,1): warning C4102: “label_type1”: 未引用的标签
+  dllmain.cpp
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\dllmain.cpp(32,41): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\dllmain.cpp(33,39): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\dllmain.cpp(34,38): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\dllmain.cpp(35,38): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\i\source\repos\BeiDou-ijl15\ezorsia\dllmain.cpp(44,39): warning C4244: “=”: 从“long”转换到“unsigned char”，可能丢失数据
+  正在生成代码...
+  ezorsia.vcxproj -> C:\Users\i\source\repos\BeiDou-ijl15\out\Debug\ijl15.dll
