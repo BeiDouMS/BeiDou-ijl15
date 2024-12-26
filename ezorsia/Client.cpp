@@ -896,7 +896,11 @@ void Client::NoPassword() {
 
 void Client::MoreHook() {
 	Memory::WriteInt(0x009A3D81, 480);
-
+	Memory::WriteByte(0x008EC4A7 + 1, 0x23);//装备属性页面的职业需求偏移战士
+	Memory::WriteByte(0x008EC53C + 1, 0x4D);//魔法师
+	Memory::WriteByte(0x008EC5D1 + 1, 0x7A);//弓箭手
+	Memory::WriteByte(0x008EC660 + 1, 0xA9);//飞侠
+	Memory::WriteByte(0x008EC6CF + 1, 0xC8);//海盗
 	Memory::CodeCave(faceHairCave, 0x005C94F3, 18);
 	Memory::CodeCave(canSendPkgTimeCave, 0x00485C28, 10);
 
