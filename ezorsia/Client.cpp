@@ -28,6 +28,7 @@ std::string Client::ServerIP_AddressFromINI = "127.0.0.1";
 int Client::serverIP_Port = 8484;
 bool Client::talkRepeat = false;
 int Client::talkTime = 2000;
+bool Client::allowCashTrade = false;
 
 void Client::UpdateGameStartup() {
 	//Memory::CodeCave(cc0x0044E550, dw0x0044E550, dw0x0044E550Nops); //run from packed client //skip //sub_44E546
@@ -924,4 +925,21 @@ void Client::MoreHook() {
 	}
 	// 喇叭
 	Memory::WriteInt(0x0045A5BE + 1, 9999);
+	// 现金可交易
+	if (allowCashTrade)
+	{
+		// Remove call to check if there are cash items in the list, which prompts the birthday check
+		Memory::WriteByte(0x006FCC33, 0xB8);
+		Memory::WriteByte(0x006FCC33 + 1, 0x01);
+		Memory::WriteByte(0x006FCC33 + 2, 0x00);
+		Memory::WriteByte(0x006FCC33 + 3, 0x00);
+		Memory::WriteByte(0x006FCC33 + 4, 0x00);
+
+		// (optional) Remove Parens Formatting from Time Remaining Window
+		Memory::WriteByte(0x00AF2450 + 2, 0x20);
+		Memory::WriteByte(0x00AF2450 + 5, 0x00);
+		unsigned char allowCashItemTrade[] = { 0x90, 0x90, 0x90, 0x90, 0x90,0x90 };
+		Memory::WriteByteArray(0x004F3FB8, allowCashItemTrade, sizeof(allowCashItemTrade));
+		Memory::WriteByteArray(0x004F3FC4, allowCashItemTrade, sizeof(allowCashItemTrade));
+	}
 }
