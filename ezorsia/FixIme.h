@@ -1,5 +1,6 @@
 #pragma once
 #include <imm.h>
+#include "INIReader.h"
 #pragma comment(lib, "imm32.lib")
 
 void EnableIme() { // 目前没有用到这个方法，未测试效果
@@ -165,8 +166,18 @@ public:
 		// 老虎喇叭 多行输入框————可正常输入
 	}
 private:
+	static bool IsModifierHoldFixEnabled() {
+		INIReader reader("config.ini");
+		if (reader.ParseError() == 0) {
+			return reader.GetBoolean("general", "FixModifierHold", true);
+		}
+		return true;
+	}
+
 	static void GeneralHook() {
-		Memory::FillBytes(0x008D54A6, 0x90, 9); // Key ?
+		if (!IsModifierHoldFixEnabled()) {
+			Memory::FillBytes(0x008D54A6, 0x90, 9); // Key ?
+		}
 		Memory::FillBytes(0x00937225, 0x90, 9); // Chat
 		Memory::FillBytes(0x00531EE8, 0x90, 9); // Group Message
 		// 剪贴板支持中文
