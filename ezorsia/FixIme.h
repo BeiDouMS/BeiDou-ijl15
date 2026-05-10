@@ -3,13 +3,13 @@
 #include "INIReader.h"
 #pragma comment(lib, "imm32.lib")
 
-void EnableIme() { // Ä¿Ç°Ã»ÓĞÓÃµ½Õâ¸ö·½·¨£¬Î´²âÊÔĞ§¹û
-	HWND hwnd = GetForegroundWindow(); // »ñÈ¡µ±Ç°Ç°Ì¨´°¿ÚµÄ¾ä±ú
+void EnableIme() { // Ä¿Ç°Ã»ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½
+	HWND hwnd = GetForegroundWindow(); // ï¿½ï¿½È¡ï¿½ï¿½Ç°Ç°Ì¨ï¿½ï¿½ï¿½ÚµÄ¾ï¿½ï¿½
 	if (hwnd) {
-		// »ñÈ¡ÊäÈë·¨ÉÏÏÂÎÄ
+		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ë·¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		HIMC hImc = ImmGetContext(hwnd);
 		if (hImc) {
-			// ½«ÊäÈë·¨ÉÏÏÂÎÄÖØĞÂ¹ØÁªµ½´°¿Ú
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ë·¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			ImmAssociateContext(hwnd, hImc);
 			ImmReleaseContext(hwnd, hImc);
 		}
@@ -17,12 +17,12 @@ void EnableIme() { // Ä¿Ç°Ã»ÓĞÓÃµ½Õâ¸ö·½·¨£¬Î´²âÊÔĞ§¹û
 }
 
 void DisableIme() {
-	HWND hwnd = GetForegroundWindow(); // »ñÈ¡µ±Ç°Ç°Ì¨´°¿ÚµÄ¾ä±ú
+	HWND hwnd = GetForegroundWindow(); // ï¿½ï¿½È¡ï¿½ï¿½Ç°Ç°Ì¨ï¿½ï¿½ï¿½ÚµÄ¾ï¿½ï¿½
 	if (hwnd) {
-		// »ñÈ¡ÊäÈë·¨ÉÏÏÂÎÄ
+		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ë·¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		HIMC hImc = ImmGetContext(hwnd);
 		if (hImc) {
-			// ½â³ıÊäÈë·¨ÉÏÏÂÎÄµÄ¹ØÁª
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë·¨ï¿½ï¿½ï¿½ï¿½ï¿½ÄµÄ¹ï¿½ï¿½ï¿½
 			ImmAssociateContext(hwnd, NULL);
 			ImmReleaseContext(hwnd, hImc);
 		}
@@ -36,7 +36,7 @@ DWORD funcEnableImeAddr = 0x009E85F3;
 DWORD setOnFocusFirstJudgementRtnAddr = 0x004CA061;
 DWORD switchImeAddr = 0x004CA078;
 __declspec(naked) void setOnFocusFirstJudgement() {
-	// ÕâÀïÔ­º¯Êı»áÖ±½ÓÌø¹ıÇĞ»»IMEµÄµØ·½£¬ÎÒÃÇÒªÈÃËûÌøµ½ÇĞ»»IMEµÄµØ·½
+	// ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ»ï¿½IMEï¿½ÄµØ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ»ï¿½IMEï¿½ÄµØ·ï¿½
 	__asm {
 		cmp[esp + 0Ch], edi
 		jz label_jmp_switch_ime
@@ -89,7 +89,7 @@ __declspec(naked) void switchMLIme() {
 DWORD newSwitchImeRtnAddr = 0x004CA08F;
 __declspec(naked) void newSwitchIme() {
 	__asm {
-		cmp[esi + 0x80], 1 // ÅĞ¶ÏÊÇ·ñÃÜÂë¿ò
+		cmp[esi + 0x80], 1 // ï¿½Ğ¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		jz label_disable
 		push 1
 		call funcEnableImeAddr
@@ -134,36 +134,36 @@ __declspec(naked) void newSwitchMLIme() {
 class FixIme {
 public:
 	static void HookOld() {
-		// ÊÊºÏ½Ï¾ÉµÄwin10ÏµÍ³
-		// ÒÑÖªÎÊÌâ£ºÉÌ³ÇµÄÀñÎïÔùËÍ£¬ÌîĞ´ÄÚÈİµÄµØ·½»áÎŞ·¨µ÷³öIME
+		// ï¿½ÊºÏ½Ï¾Éµï¿½win10ÏµÍ³
+		// ï¿½ï¿½Öªï¿½ï¿½ï¿½â£ºï¿½Ì³Çµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½İµÄµØ·ï¿½ï¿½ï¿½ï¿½Ş·ï¿½ï¿½ï¿½ï¿½ï¿½IME
 
 		GeneralHook();
-		// µ¥ĞĞÊäÈë¿òOnSetFocus@CCtrlEdit
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½OnSetFocus@CCtrlEdit
 		Memory::CodeCave(setOnFocusFirstJudgement, 0x004CA05B, 6);
 		Memory::CodeCave(switchIme, 0x004CA089, 6);
-		// ¶àĞĞÊäÈë¿òOnSetFocus@CCtrlMLEdit
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½OnSetFocus@CCtrlMLEdit
 		Memory::FillBytes(0x004D32C6, 0x90, 2);
 		Memory::CodeCave(switchMLIme, 0x004D32D9, 7);
-		Memory::CodeCave(destroyWindow, 0x004DFEA4, 9); // Ïú»Ù´°¿ÚÊ±¹Ì¶¨½ûÓÃIME
+		Memory::CodeCave(destroyWindow, 0x004DFEA4, 9); // ï¿½ï¿½ï¿½Ù´ï¿½ï¿½ï¿½Ê±ï¿½Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½IME
 		std::cout << "Old Ime Hook" << std::endl;
 	}
 
 	static void HookNew() {
-		// ÊÊºÏ½ÏĞÂµÄwin10ÏµÍ³ºÍwin11ÏµÍ³
-		// ÓÉÓÚÔ­À´µÄ·½·¨ÔÚ win11ÏÂÊ§Ğ§Òò´ËÖØĞ´ÁË
+		// ï¿½ÊºÏ½ï¿½ï¿½Âµï¿½win10ÏµÍ³ï¿½ï¿½win11ÏµÍ³
+		// ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ win11ï¿½ï¿½Ê§Ğ§ï¿½ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½
 
 		GeneralHook();
-		// µ¥ĞĞÊäÈë¿òÆôÓÃIME
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IME
 		Memory::CodeCave(newSwitchIme, 0x004CA089, 6);
-		Memory::CodeCave(destroyWindow, 0x004DFEA4, 9); // Ïú»Ù´°¿ÚÊ±¹Ì¶¨½ûÓÃIME
-		//Memory::WriteByte(0x004D32D9 + 1, 1); // ¶àĞĞÊäÈë
-		Memory::CodeCave(newSwitchMLIme, 0x004D32D9, 7); // ¶àĞĞÊäÈë
+		Memory::CodeCave(destroyWindow, 0x004DFEA4, 9); // ï¿½ï¿½ï¿½Ù´ï¿½ï¿½ï¿½Ê±ï¿½Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½IME
+		//Memory::WriteByte(0x004D32D9 + 1, 1); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		Memory::CodeCave(newSwitchMLIme, 0x004D32D9, 7); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		std::cout << "New Ime Hook" << std::endl;
-		// ²âÊÔ
-		// µÇÂ¼½çÃæ ÃÜÂë½ûÖ¹µ÷ÓÃIME¡ª¡ª¡ª¡ªÕËºÅ¿òÎŞ·¨Ê¶±ğ£¬ÃÜÂë¿òÒÑÌØÊâ´¦Àí½ûÓÃIMEÁË
-		// Æ½³£×´Ì¬ÏÂ ÊäÈë·¨¿ÉÒÔÊäÈëÖĞÎÄ£¬·ÇÊäÈë·¨²»¿¨ÃÅ¡ª¡ª¡ª¡ªÒÑ²âÊÔ
-		// ÉÌ³ÇÀñÎï ÈÕÆÚ/±êÌâ/ÄÚÈİ¡ª¡ª¡ª¡ªÉúÈÕ½ûÓÃIME / ±êÌâÄÚÈİ¾ù¿Éµ÷ÓÃÊäÈë·¨
-		// ÀÏ»¢À®°È ¶àĞĞÊäÈë¿ò¡ª¡ª¡ª¡ª¿ÉÕı³£ÊäÈë
+		// ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½IMEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ËºÅ¿ï¿½ï¿½Ş·ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IMEï¿½ï¿½
+		// Æ½ï¿½ï¿½×´Ì¬ï¿½ï¿½ ï¿½ï¿½ï¿½ë·¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë·¨ï¿½ï¿½ï¿½ï¿½ï¿½Å¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ²ï¿½ï¿½ï¿½
+		// ï¿½Ì³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½İ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ï¿½ï¿½IME / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ¾ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë·¨
+		// ï¿½Ï»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò¡ª¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 private:
 	static bool IsModifierHoldFixEnabled() {
@@ -175,15 +175,13 @@ private:
 	}
 
 	static void GeneralHook() {
-		if (!IsModifierHoldFixEnabled()) {
-			Memory::FillBytes(0x008D54A6, 0x90, 9); // Key ?
-		}
+		Memory::FillBytes(0x008D54A6, 0x90, 9); // Key (unconditional - char filter breaks IME)
 		Memory::FillBytes(0x00937225, 0x90, 9); // Chat
 		Memory::FillBytes(0x00531EE8, 0x90, 9); // Group Message
-		// ¼ôÌù°åÖ§³ÖÖĞÎÄ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Memory::FillBytes(0x004CAE7D, 0x90, 2);
 		Memory::WriteByte(0x004CAE8F, 0xEB);
-		// ½ÇÉ«ÃûÖĞÎÄ¼ì²â
+		// ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½
 		Memory::FillBytes(0x007A015D, 0x90, 2);
 	}
 };
