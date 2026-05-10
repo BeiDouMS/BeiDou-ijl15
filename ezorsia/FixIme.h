@@ -165,15 +165,6 @@ public:
 		// �̳����� ����/����/���ݡ����������ս���IME / �������ݾ��ɵ������뷨
 		// �ϻ����� ��������򡪡���������������
 	}
-private:
-	static bool IsModifierHoldFixEnabled() {
-		INIReader reader("config.ini");
-		if (reader.ParseError() == 0) {
-			return reader.GetBoolean("general", "FixModifierHold", true);
-		}
-		return true;
-	}
-
 	static void GeneralHook() {
 		Memory::FillBytes(0x008D54A6, 0x90, 9); // Key (unconditional - char filter breaks IME)
 		Memory::FillBytes(0x00937225, 0x90, 9); // Chat
