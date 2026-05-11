@@ -150,6 +150,9 @@
     <ClInclude Include="FixBuddy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ModifierRepeat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -177,6 +180,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="HpMpAlert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModifierRepeat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

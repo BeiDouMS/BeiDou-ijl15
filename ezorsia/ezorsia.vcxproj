@@ -175,6 +175,7 @@
     <ClInclude Include="HpMpAlert.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="FixBuddy.h" />
+    <ClInclude Include="ModifierRepeat.h" />
     <ClInclude Include="FixIme.h" />
     <ClInclude Include="ijl15.h" />
     <ClInclude Include="MapleClientCollectionTypes\TSecType.h" />
@@ -218,6 +219,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Memory.cpp" />
     <ClCompile Include="NMCO.cpp" />
+    <ClCompile Include="ModifierRepeat.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
