@@ -1,4 +1,4 @@
-﻿// dllmain.cpp : Defines the entry point for the DLL application.
+// dllmain.cpp : Defines the entry point for the DLL application.
 #include "stdafx.h"
 #include "NMCO.h"
 #include "ijl15.h"
@@ -8,6 +8,7 @@
 #include "BossHP.h"
 #include "HpMpAlert.h"
 #include "SelectCharMacFix.h"
+#include "AutoLogin.h"
 #pragma comment(lib, "ws2_32.lib")
 
 // config.ini can use IP or hostname (ServerIP_Address=...).
@@ -96,6 +97,28 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 			Client::climbSpeed = reader.GetFloat("optional", "climbSpeed", 1.0);
 			Client::talkRepeat = reader.GetBoolean("optional", "talkRepeat", false);
 			Client::talkTime = reader.GetInteger("optional", "talkTime", 2000);
+
+			bool autoLogin = reader.GetBoolean("general", "AutoLogin", false);
+			if (!autoLogin) {
+				autoLogin = reader.GetBoolean("auto_login", "enable", false);
+			}
+			std::string autoLoginUsername = reader.Get("general", "AutoLogin_Username", "");
+			if (autoLoginUsername.empty()) {
+				autoLoginUsername = reader.Get("auto_login", "username", "");
+			}
+			std::string autoLoginPassword = reader.Get("general", "AutoLogin_Password", "");
+			if (autoLoginPassword.empty()) {
+				autoLoginPassword = reader.Get("auto_login", "password", "");
+			}
+			int autoLoginWorld = reader.GetInteger("general", "AutoLogin_World", 0);
+			if (autoLoginWorld == 0) {
+				autoLoginWorld = reader.GetInteger("auto_login", "world", 0);
+			}
+			int autoLoginChannel = reader.GetInteger("general", "AutoLogin_Channel", 0);
+			if (autoLoginChannel == 0) {
+				autoLoginChannel = reader.GetInteger("auto_login", "channel", 0);
+			}
+			AutoLogin::Init(autoLogin, autoLoginUsername, autoLoginPassword, autoLoginWorld, autoLoginChannel);
 		}
 
 		Hook_CreateMutexA(true); //multiclient //ty darter, angel, and alias!
@@ -115,6 +138,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 		HookSaveGlobal(true);
 		HookHpMpAlertRecv(true);
 		HookSelectCharMacFix(true);
+		AutoLogin::Hook(true);
 		//Hook_get_unknown(true);
 		//Hook_get_resource_object(true); //helper function hooks  //ty teto for helping me get started
 		//Hook_com_ptr_t_IWzProperty__ctor(true);

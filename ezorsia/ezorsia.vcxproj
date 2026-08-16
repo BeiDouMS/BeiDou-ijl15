@@ -173,6 +173,7 @@
     </ClInclude>
     <ClInclude Include="BossHP.h" />
     <ClInclude Include="HpMpAlert.h" />
+    <ClInclude Include="AutoLogin.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="FixBuddy.h" />
     <ClInclude Include="FixIme.h" />
@@ -213,6 +214,7 @@
   <ItemGroup>
     <ClCompile Include="BossHP.cpp" />
     <ClCompile Include="HpMpAlert.cpp" />
+    <ClCompile Include="AutoLogin.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ijl15.cpp" />
     <ClCompile Include="ZAllocEx.cpp" />
