@@ -8,6 +8,10 @@
 #include "BossHP.h"
 #include "HpMpAlert.h"
 #include "SelectCharMacFix.h"
+#include "ModeTableFix.h"
+#include "LocaleFix.h"
+#include "NetAdapterFix.h"
+#include "SoundStreamFix.h"
 #pragma comment(lib, "ws2_32.lib")
 
 // config.ini can use IP or hostname (ServerIP_Address=...).
@@ -65,6 +69,10 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 	case DLL_PROCESS_ATTACH:
 	{
 		//CreateConsole();	//console for devs, use this to log stuff if you want
+		bool fakeModeInject = true;
+		bool forceFontCharset = true;
+		bool fixAdapterInfo = true;
+		bool reuseSoundStreams = true;
 		INIReader reader("config.ini");
 		if (reader.ParseError() == 0) {
 			Client::m_nGameWidth = reader.GetInteger("general", "width", 1280);
@@ -96,7 +104,22 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 			Client::climbSpeed = reader.GetFloat("optional", "climbSpeed", 1.0);
 			Client::talkRepeat = reader.GetBoolean("optional", "talkRepeat", false);
 			Client::talkTime = reader.GetInteger("optional", "talkTime", 2000);
+
+			// [compat] 跨环境兼容修复，四个开关的详细说明见各自的头文件
+			fakeModeInject = reader.GetBoolean("compat", "FakeModeInject", true);
+			forceFontCharset = reader.GetBoolean("compat", "ForceFontCharset", true);
+			fixAdapterInfo = reader.GetBoolean("compat", "FixAdapterInfo", true);
+			reuseSoundStreams = reader.GetBoolean("compat", "ReuseSoundStreams", true);
 		}
+
+		// 目标分辨率不在显卡模式表里时补上（RDP会话、macOS内置屏）
+		ModeTableFix_Install(fakeModeInject);
+		// 非中文系统上的中文显示（英文Windows、macOS上的Wine）
+		LocaleFix_Install(forceFontCharset);
+		// 选完角色枚举网卡时，客户端不检查 GetAdaptersInfo 的返回值就遍历缓冲区
+		NetAdapterFix_Install(fixAdapterInfo);
+		// 每播一次音效都重开一条 MP3 解码流，Wine 下光开流就要 100ms+
+		SoundStreamFix_Install(reuseSoundStreams);
 
 		Hook_CreateMutexA(true); //multiclient //ty darter, angel, and alias!
 		HookCreateWindowExA(true); //default ezorsia
