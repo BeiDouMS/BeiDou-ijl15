@@ -204,6 +204,10 @@
     <ClInclude Include="Memory.h" />
     <ClInclude Include="NMCO.h" />
     <ClInclude Include="SelectCharMacFix.h" />
+    <ClInclude Include="ModeTableFix.h" />
+    <ClInclude Include="LocaleFix.h" />
+    <ClInclude Include="NetAdapterFix.h" />
+    <ClInclude Include="SoundStreamFix.h" />
     <ClInclude Include="AutoTypes.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -220,6 +224,10 @@
     <ClCompile Include="Memory.cpp" />
     <ClCompile Include="NMCO.cpp" />
     <ClCompile Include="SelectCharMacFix.cpp" />
+    <ClCompile Include="ModeTableFix.cpp" />
+    <ClCompile Include="LocaleFix.cpp" />
+    <ClCompile Include="NetAdapterFix.cpp" />
+    <ClCompile Include="SoundStreamFix.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
