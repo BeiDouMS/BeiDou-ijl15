@@ -1,5 +1,7 @@
 #pragma once
 #include "AutoTypes.h"
+#include "D3D8PortraitFix.h"
+#include <unordered_map>
 
 static bool ownLoginFrame;
 static bool ownCashShopFrame;
@@ -34,13 +36,13 @@ bool HookGetModuleFileName(bool bEnable) {
 /// <summary>
 /// Creates a detour for the User32.dll CreateWindowExA function applying the following changes:
 /// 1. Enable the window minimize box
+/// 2. Center on the monitor best suited for the window size (portrait-primary fix, see D3D8PortraitFix)
 /// </summary>
 inline void HookCreateWindowExA(bool bEnable) {
 	static auto create_window_ex_a = decltype(&CreateWindowExA)(GetProcAddress(LoadLibraryA("USER32"), "CreateWindowExA"));
 	static const decltype(&CreateWindowExA) hook = [](DWORD dwExStyle, LPCSTR lpClassName, LPCSTR lpWindowName, DWORD dwStyle, int x, int y, int nWidth, int nHeight, HWND hWndParent, HMENU hMenu, HINSTANCE hInstance, LPVOID lpParam) -> HWND {
 		dwStyle |= WS_MINIMIZEBOX; // enable minimize button
-        x = (GetSystemMetrics(SM_CXSCREEN) - nWidth) / 2;
-        y = (GetSystemMetrics(SM_CYSCREEN) - nHeight) / 4;
+		D3D8PortraitFix::PlaceWindowOnBestMonitor(x, y, nWidth, nHeight);
 		return create_window_ex_a(dwExStyle, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
 	};
 	Memory::SetHook(bEnable, reinterpret_cast<void**>(&create_window_ex_a), hook);
@@ -193,11 +195,7 @@ bool HookCWvsApp__InitializeResMan(bool bEnable)	//resman hook that does nothing
 	return Memory::SetHook(bEnable, reinterpret_cast<void**>(&_CWvsApp__InitializeResMan), _CWvsApp__InitializeResMan_Hook);
 }
 //#pragma optimize("", on)
-struct KeyValuePair {
-	int key;
-	std::string value;
-};
-KeyValuePair newKeyValuePairs[] = {
+std::unordered_map<int, std::string> newKeyValuePairs = {
     {11, "设置"},
     {12, "新手"},
     {13, "战士"},
@@ -2154,11 +2152,9 @@ bool Hook_StringPool__GetString(bool bEnable)	//hook stringpool modification //t
 			default:
 				if (Client::SwitchChinese)
 				{
-					for (const auto& pair : newKeyValuePairs) {
-						if (nIdx == pair.key) {
-							*ret = pair.value.c_str();
-							break;
-						}
+                    auto iter = newKeyValuePairs.find(nIdx);
+                    if (iter != newKeyValuePairs.end()) {
+                        *ret = iter->second.c_str();
 					}
 				}
 				break;

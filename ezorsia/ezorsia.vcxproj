@@ -200,6 +200,7 @@
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="codecaves.h" />
     <ClInclude Include="ReplacementFuncs.h" />
+    <ClInclude Include="D3D8PortraitFix.h" />
     <ClInclude Include="INIReader.h" />
     <ClInclude Include="Memory.h" />
     <ClInclude Include="NMCO.h" />
@@ -214,6 +215,7 @@
     <ClCompile Include="BossHP.cpp" />
     <ClCompile Include="HpMpAlert.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="D3D8PortraitFix.cpp" />
     <ClCompile Include="ijl15.cpp" />
     <ClCompile Include="ZAllocEx.cpp" />
     <ClCompile Include="dllmain.cpp" />

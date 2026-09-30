@@ -3,6 +3,7 @@
 #include "NMCO.h"
 #include "ijl15.h"
 #include "INIReader.h"
+#include "D3D8PortraitFix.h"
 #include "ReplacementFuncs.h"
 #include <comutil.h>
 #include "BossHP.h"
@@ -99,6 +100,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 		}
 
 		Hook_CreateMutexA(true); //multiclient //ty darter, angel, and alias!
+		D3D8PortraitFix::HookD3D8AdapterRemap(true); //portrait-primary monitor: spoof landscape modes for Gr2D_DX8, keep device on adapter 0
 		HookCreateWindowExA(true); //default ezorsia
 		HookGetModuleFileName(true); //default ezorsia
 		HookPcCreateObject_IWzResMan(true);

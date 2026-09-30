@@ -189,6 +189,11 @@ public:
 		return this->m_pStr;
 	}
 
+	const T* c_str()
+	{
+		return this->m_pStr;
+	}
+
 	// ------------------------------------------------------ Public Member Functions
 
 	/// <summary>
